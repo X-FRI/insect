@@ -1,8 +1,9 @@
+#include "debugger.h"
 #include <iostream>
 #include <unistd.h>
-#include "debugger.h"
 
-int main(int argc, char *argv[]) {
+int
+main(int argc, char *argv[]) {
     if (argc < 2) {
         std::cerr << "Program name not specified";
         return -1;
@@ -12,7 +13,6 @@ int main(int argc, char *argv[]) {
     auto pid = fork();
 
     if (pid == 0) {
-
     } else if (pid >= 1) {
         std::cout << "Started debugging process : " << pid << std::endl;
         sinbuger::debugger dbg(prog, pid);

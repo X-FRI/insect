@@ -1,66 +1,68 @@
-# Generated from CLion C/C++ Code Style settings
-BasedOnStyle: LLVM
-AccessModifierOffset: -4
-AlignAfterOpenBracket: Align
-AlignConsecutiveAssignments: None
-AlignOperands: Align
+Language:	Cpp
+BasedOnStyle:	GNU
+AccessModifierOffset:	-1
+BinPackArguments:	false
+BinPackParameters:	false
+BraceWrapping:   
+  AfterClass:	true
+  AfterControlStatement:	true
+  AfterEnum:	true
+  AfterFunction:	true
+  AfterNamespace:	true
+  AfterStruct:	true
+  AfterUnion:	true
+  BeforeCatch:	true
+  BeforeElse:	true
+  IndentBraces:	true
+BreakBeforeBinaryOperators:	NonAssignment
+BreakBeforeBraces:	Custom
+BreakBeforeTernaryOperators:	true
+BreakConstructorInitializersBeforeComma:	true
 AllowAllArgumentsOnNextLine: false
-AllowAllConstructorInitializersOnNextLine: false
-AllowAllParametersOfDeclarationOnNextLine: false
-AllowShortBlocksOnASingleLine: Always
-AllowShortCaseLabelsOnASingleLine: false
-AllowShortFunctionsOnASingleLine: All
-AllowShortIfStatementsOnASingleLine: Always
-AllowShortLambdasOnASingleLine: All
-AllowShortLoopsOnASingleLine: true
-AlwaysBreakAfterReturnType: None
-AlwaysBreakTemplateDeclarations: Yes
-BreakBeforeBraces: Custom
-BraceWrapping:
-  AfterCaseLabel: false
-  AfterClass: false
-  AfterControlStatement: Never
-  AfterEnum: false
-  AfterFunction: false
-  AfterNamespace: false
-  AfterUnion: false
-  BeforeCatch: false
-  BeforeElse: false
-  IndentBraces: false
-  SplitEmptyFunction: false
-  SplitEmptyRecord: true
-BreakBeforeBinaryOperators: None
-BreakBeforeTernaryOperators: true
-BreakConstructorInitializers: BeforeColon
-BreakInheritanceList: BeforeColon
-ColumnLimit: 0
-CompactNamespaces: false
-ContinuationIndentWidth: 8
-IndentCaseLabels: true
-IndentPPDirectives: None
-IndentWidth: 4
-KeepEmptyLinesAtTheStartOfBlocks: true
-MaxEmptyLinesToKeep: 2
+AllowAllParametersOfDeclarationOnNextLine: true
+ColumnLimit: 90
+CommentPragmas:	'^ IWYU pragma:'
+ConstructorInitializerAllOnOneLineOrOnePerLine:	false
+ConstructorInitializerIndentWidth:	2
+ContinuationIndentWidth:	2
+Cpp11BracedListStyle:	false
+DerivePointerAlignment:	false
+DisableFormat:	false
+ExperimentalAutoDetectBinPacking:	false
+ForEachMacros:	[ foreach, Q_FOREACH, BOOST_FOREACH ]
+IncludeCategories: 
+  - Regex:	'^"(llvm|llvm-c|clang|clang-c)/'
+    Priority:	2
+  - Regex:	'^(<|"(gtest|isl|json)/)'
+    Priority:	3
+  - Regex:	'.*'
+    Priority:	1
+IndentCaseLabels:	false
+IndentWidth:	2
+IndentWrappedFunctionNames:	false
+KeepEmptyLinesAtTheStartOfBlocks:	true
+MacroBlockBegin:	''
+MacroBlockEnd:	''
+MaxEmptyLinesToKeep:	1
 NamespaceIndentation: All
-ObjCSpaceAfterProperty: false
-ObjCSpaceBeforeProtocolList: true
-PointerAlignment: Right
-ReflowComments: false
-SpaceAfterCStyleCast: true
-SpaceAfterLogicalNot: false
-SpaceAfterTemplateKeyword: false
-SpaceBeforeAssignmentOperators: true
-SpaceBeforeCpp11BracedList: false
-SpaceBeforeCtorInitializerColon: true
-SpaceBeforeInheritanceColon: true
-SpaceBeforeParens: ControlStatements
-SpaceBeforeRangeBasedForLoopColon: false
-SpaceInEmptyParentheses: false
-SpacesBeforeTrailingComments: 0
-SpacesInAngles: false
-SpacesInCStyleCastParentheses: false
-SpacesInContainerLiterals: false
-SpacesInParentheses: false
-SpacesInSquareBrackets: false
-TabWidth: 4
-UseTab: Never
+PenaltyBreakComment:	300
+PenaltyBreakFirstLessLess:	120
+PenaltyBreakString:	1000
+PenaltyExcessCharacter:	1000000
+PenaltyReturnTypeOnItsOwnLine:	60
+PointerAlignment:	Middle
+ReflowComments:	true
+SortIncludes:	true
+SpaceAfterCStyleCast:	false
+SpaceBeforeAssignmentOperators:	true
+SpaceBeforeParens:	ControlStatements
+SpaceInEmptyParentheses:	false
+SpacesBeforeTrailingComments:	1
+SpacesInAngles:	false
+SpacesInContainerLiterals:	true
+SpacesInCStyleCastParentheses:	false
+SpacesInParentheses:	false
+SpacesInSquareBrackets:	false
+Standard:	Auto
+TabWidth:	2
+UseTab:	Never

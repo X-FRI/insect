@@ -1,6 +1,6 @@
 [
 {
   "directory": "/home/muqiu-han/Workspace/sinbuger",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I", "/home/muqiu-han/.xmake/packages/l/linenoise/2020.3.12/f8f39507e8d444bc880979b4c333f771/include", "-DNDEBUG", "-o", "build/.objs/sinbuger/linux/x86_64/release/src/main.cpp.o", "src/main.cpp"],
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I", "/home/muqiu-han/.xmake/packages/l/linenoise/2020.3.12/f8f39507e8d444bc880979b4c333f771/include", "-I", "/home/muqiu-han/.xmake/packages/p/plog/1.1.9/2ddcabfa535b431584ecede27117dc7d/include", "-DNDEBUG", "-o", "build/.objs/sinbuger/linux/x86_64/release/src/main.cpp.o", "src/main.cpp"],
   "file": "src/main.cpp"
 }]

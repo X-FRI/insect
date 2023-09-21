@@ -4,7 +4,6 @@
 #define SINBUGER_ERROR_H
 
 #include "log.hpp"
-#include "result.hpp"
 #include <cerrno>
 #include <cstdint>
 #include <exception>
@@ -18,11 +17,13 @@ namespace sinbuger::error
   enum class Code
   {
     Undefined,
+    Debugger,
     Unix,
   };
 
   inline const std::map<Code, std::string> CODE_TO_STRING = {
     { Code::Undefined, "Unknown Error" },
+    { Code::Undefined, "Debugger Error" },
     { Code::Unix, "Unix Error" },
   };
 
@@ -40,8 +41,8 @@ namespace sinbuger::error
       , m_errno(errno)
       , m_custom(std::move(custom))
       , m_line(line)
-      , m_file(std::move(file))
-      , m_function(std::move(function))
+      , m_file(file)
+      , m_function(function)
     {
       LOG_ERROR << to_string() << ":" << function;
       LOG_INFO << "In the " << function << " function on line " << line << " of the file "

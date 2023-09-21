@@ -8,6 +8,7 @@
 #include <linux/prctl.h>
 #include <sys/capability.h>
 #include <sys/prctl.h>
+#include <sys/ptrace.h>
 #include <sys/utsname.h>
 #include <sys/wait.h>
 
@@ -62,6 +63,9 @@ namespace sinbuger::unix
    public:
     static Result<Void, error::Err>
     Waitpid(pid_t pid, int * wait_status, int options) noexcept;
+
+    static Result<Void, error::Err>
+    Ptrace(enum __ptrace_request request, pid_t pid, void * addr, void * data) noexcept;
   };
 
   class Utsname

@@ -1,7 +1,7 @@
 /** Copyright (C) 2023 Muqiu Han <muqiu-han@outlook.com> */
 
-#ifndef BONDING_LOG_HPP
-#define BONDING_LOG_HPP
+#ifndef sinbuger_LOG_HPP
+#define sinbuger_LOG_HPP
 
 #include <iomanip>
 #include <plog/Appenders/ConsoleAppender.h>
@@ -120,4 +120,4 @@ namespace sinbuger::log
   }
 };
 
-#endif /* BONDING_LOG_HPP */
+#endif /* sinbuger_LOG_HPP */

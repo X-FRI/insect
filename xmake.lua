@@ -1,4 +1,4 @@
-set_project("bonding")
+set_project("sinbuger")
 set_version("0.1.3")
 set_xmakever("2.8.1")
 

@@ -5,6 +5,7 @@
 #include <filesystem>
 #include <fstream>
 #include <sys/capability.h>
+#include <sys/ptrace.h>
 #include <sys/utsname.h>
 #include <unistd.h>
 
@@ -66,13 +67,24 @@ namespace sinbuger::unix
   /** Process::Waitpid */
   GENERATE_NO_RET_VALUE_SYSTEM_CALL_WRAPPER(int,
                                             -1,
-                                            Waitpid(pid_t pid,
-                                                    int * wait_status,
-                                                    int options),
+                                            Process::Waitpid(pid_t pid,
+                                                             int * wait_status,
+                                                             int options),
                                             waitpid,
                                             pid,
                                             wait_status,
                                             options);
+
+  /** Process::Ptrace */
+  GENERATE_NO_RET_VALUE_SYSTEM_CALL_WRAPPER(
+    long,
+    -1,
+    Process::Ptrace(enum __ptrace_request request, pid_t pid, void * addr, void * data),
+    ptrace,
+    request,
+    pid,
+    addr,
+    data);
 
   Result<utsname, error::Err>
   Utsname::Get() noexcept

@@ -10,7 +10,7 @@ namespace sinbuger::utils
     std::string item;
 
     while (std::getline(ss, item, delimiter))
-        out.push_back(item);
+      out.push_back(item);
 
     return Ok(out);
   }

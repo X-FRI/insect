@@ -15,11 +15,11 @@ namespace sinbuger::utils
     return Ok(out);
   }
 
-  Result<bool, error::Err>
+  bool
   String::is_prefix(const std::string & s, const std::string & of) noexcept
   {
     if (s.size() > of.size())
-      return Ok(false);
-    return Ok(std::equal(s.begin(), s.end(), of.begin()));
+      return false;
+    return std::equal(s.begin(), s.end(), of.begin());
   }
 }

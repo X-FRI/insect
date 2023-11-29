@@ -1,26 +1,31 @@
 [
 {
-  "directory": "/home/muqiu-han/Workspace/sinbuger",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++17", "-I", "/home/muqiu-han/.xmake/packages/l/linenoise/2020.3.12/f8f39507e8d444bc880979b4c333f771/include", "-I", "/home/muqiu-han/.xmake/packages/p/plog/1.1.9/2ddcabfa535b431584ecede27117dc7d/include", "-o", "build/.objs/sinbuger/linux/x86_64/debug/src/debugger.cpp.o", "src/debugger.cpp"],
+  "directory": "/home/muqiu/Workspace/sinbuger",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I", "/home/muqiu/.xmake/packages/l/linenoise/2020.3.12/f8f39507e8d444bc880979b4c333f771/include", "-I", "/home/muqiu/.xmake/packages/p/plog/1.1.9/2ddcabfa535b431584ecede27117dc7d/include", "-I", "/home/muqiu/.xmake/packages/l/libcap/2.27/946920539efd4c39b523bde035ef6d3e/include", "-DNDEBUG", "-o", "build/.objs/sinbuger/linux/x86_64/release/src/debugger.cpp.o", "src/debugger.cpp"],
   "file": "src/debugger.cpp"
 },
 {
-  "directory": "/home/muqiu-han/Workspace/sinbuger",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++17", "-I", "/home/muqiu-han/.xmake/packages/l/linenoise/2020.3.12/f8f39507e8d444bc880979b4c333f771/include", "-I", "/home/muqiu-han/.xmake/packages/p/plog/1.1.9/2ddcabfa535b431584ecede27117dc7d/include", "-o", "build/.objs/sinbuger/linux/x86_64/debug/src/unix.cpp.o", "src/unix.cpp"],
-  "file": "src/unix.cpp"
-},
-{
-  "directory": "/home/muqiu-han/Workspace/sinbuger",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++17", "-I", "/home/muqiu-han/.xmake/packages/l/linenoise/2020.3.12/f8f39507e8d444bc880979b4c333f771/include", "-I", "/home/muqiu-han/.xmake/packages/p/plog/1.1.9/2ddcabfa535b431584ecede27117dc7d/include", "-o", "build/.objs/sinbuger/linux/x86_64/debug/src/error.cpp.o", "src/error.cpp"],
+  "directory": "/home/muqiu/Workspace/sinbuger",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I", "/home/muqiu/.xmake/packages/l/linenoise/2020.3.12/f8f39507e8d444bc880979b4c333f771/include", "-I", "/home/muqiu/.xmake/packages/p/plog/1.1.9/2ddcabfa535b431584ecede27117dc7d/include", "-I", "/home/muqiu/.xmake/packages/l/libcap/2.27/946920539efd4c39b523bde035ef6d3e/include", "-DNDEBUG", "-o", "build/.objs/sinbuger/linux/x86_64/release/src/error.cpp.o", "src/error.cpp"],
   "file": "src/error.cpp"
 },
 {
-  "directory": "/home/muqiu-han/Workspace/sinbuger",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++17", "-I", "/home/muqiu-han/.xmake/packages/l/linenoise/2020.3.12/f8f39507e8d444bc880979b4c333f771/include", "-I", "/home/muqiu-han/.xmake/packages/p/plog/1.1.9/2ddcabfa535b431584ecede27117dc7d/include", "-o", "build/.objs/sinbuger/linux/x86_64/debug/src/main.cpp.o", "src/main.cpp"],
+  "directory": "/home/muqiu/Workspace/sinbuger",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I", "/home/muqiu/.xmake/packages/l/linenoise/2020.3.12/f8f39507e8d444bc880979b4c333f771/include", "-I", "/home/muqiu/.xmake/packages/p/plog/1.1.9/2ddcabfa535b431584ecede27117dc7d/include", "-I", "/home/muqiu/.xmake/packages/l/libcap/2.27/946920539efd4c39b523bde035ef6d3e/include", "-DNDEBUG", "-o", "build/.objs/sinbuger/linux/x86_64/release/src/main.cpp.o", "src/main.cpp"],
   "file": "src/main.cpp"
 },
 {
-  "directory": "/home/muqiu-han/Workspace/sinbuger",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++17", "-I", "/home/muqiu-han/.xmake/packages/l/linenoise/2020.3.12/f8f39507e8d444bc880979b4c333f771/include", "-I", "/home/muqiu-han/.xmake/packages/p/plog/1.1.9/2ddcabfa535b431584ecede27117dc7d/include", "-o", "build/.objs/sinbuger/linux/x86_64/debug/src/utils.cpp.o", "src/utils.cpp"],
+  "directory": "/home/muqiu/Workspace/sinbuger",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I", "/home/muqiu/.xmake/packages/l/linenoise/2020.3.12/f8f39507e8d444bc880979b4c333f771/include", "-I", "/home/muqiu/.xmake/packages/p/plog/1.1.9/2ddcabfa535b431584ecede27117dc7d/include", "-I", "/home/muqiu/.xmake/packages/l/libcap/2.27/946920539efd4c39b523bde035ef6d3e/include", "-DNDEBUG", "-o", "build/.objs/sinbuger/linux/x86_64/release/src/unix.cpp.o", "src/unix.cpp"],
+  "file": "src/unix.cpp"
+},
+{
+  "directory": "/home/muqiu/Workspace/sinbuger",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I", "/home/muqiu/.xmake/packages/l/linenoise/2020.3.12/f8f39507e8d444bc880979b4c333f771/include", "-I", "/home/muqiu/.xmake/packages/p/plog/1.1.9/2ddcabfa535b431584ecede27117dc7d/include", "-I", "/home/muqiu/.xmake/packages/l/libcap/2.27/946920539efd4c39b523bde035ef6d3e/include", "-DNDEBUG", "-o", "build/.objs/sinbuger/linux/x86_64/release/src/utils.cpp.o", "src/utils.cpp"],
   "file": "src/utils.cpp"
+},
+{
+  "directory": "/home/muqiu/Workspace/sinbuger",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I", "/home/muqiu/.xmake/packages/l/linenoise/2020.3.12/f8f39507e8d444bc880979b4c333f771/include", "-I", "/home/muqiu/.xmake/packages/p/plog/1.1.9/2ddcabfa535b431584ecede27117dc7d/include", "-I", "/home/muqiu/.xmake/packages/l/libcap/2.27/946920539efd4c39b523bde035ef6d3e/include", "-DNDEBUG", "-o", "build/.objs/sinbuger/linux/x86_64/release/src/breakpoint.cpp.o", "src/breakpoint.cpp"],
+  "file": "src/breakpoint.cpp"
 }]

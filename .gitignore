@@ -1,9 +1,9 @@
-# Xmake cache
-.xmake/
-build/
-
-# MacOS Cache
-.DS_Store
-
 /.vscode
 /.cache
+
+# Added by cargo
+
+/target
+
+test/*
+!test/*.c

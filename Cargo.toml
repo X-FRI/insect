@@ -1,0 +1,13 @@
+[package]
+name = "insect"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+structopt = "0.3.26"
+nix = { version = "0.28.0", features = ["ptrace"] }
+linenoise-rust = "0.2.1"
+colog = { git = "https://github.com/muqiuhan/rust-colog" }
+log = '0.4.17'

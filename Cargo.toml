@@ -7,5 +7,7 @@ edition = "2021"
 
 [dependencies]
 structopt = "0.3.26"
-nix = { version = "0.27.1", features = ["ptrace"] }
+nix = { version = "0.28.0", features = ["ptrace"] }
 linenoise-rust = "0.2.1"
+colog = { git = "https://github.com/muqiuhan/rust-colog" }
+log = '0.4.17'

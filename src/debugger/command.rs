@@ -1,15 +1,20 @@
+use crate::utils as internal_utils;
+
 use super::Debugger;
 use nix::sys;
 
-trait Command {
-    fn exec(self);
+pub trait Command {
+    fn exec(debugger: &Debugger) -> ();
 }
 
-pub struct Continue(Debugger);
+pub struct Continue;
 
-impl Command for Debugger {
-    fn exec(self) {
-        nix::sys::ptrace::cont(self.pid, None).unwrap();
-        let wait_status = sys::wait::waitpid(Some(self.pid), None).unwrap();
+impl Command for Continue {
+    fn exec(debugger: &Debugger) -> () {
+        nix::sys::ptrace::cont(debugger.pid, None)
+            .map_err(|errno| internal_utils::errno::exit("Failure to continue debugging", errno))
+            .unwrap();
+
+        let _wait_status = sys::wait::waitpid(Some(debugger.pid), None).unwrap();
     }
 }

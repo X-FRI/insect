@@ -1,6 +1,7 @@
 #[macro_use]
 extern crate log;
 
+mod breakpoint;
 mod cli;
 mod debugger;
 mod utils;

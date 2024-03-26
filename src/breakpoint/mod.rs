@@ -19,50 +19,49 @@ impl Breakpoint {
         }
     }
 
-    pub fn enable(mut self) -> () {
-        let data = sys::ptrace::read(self.pid, self.addr as *mut libc::c_void)
-            .map_err(|errno| {
-                internal_utils::errno::exit(
-                    format!(
-                        "Failed to enable breakpoint, unable to read address: {}",
-                        self.addr
-                    )
-                    .as_str(),
-                    errno,
+    pub fn enable(&mut self) -> () {
+        match sys::ptrace::read(self.pid, self.addr as *mut libc::c_void) {
+            Err(errno) => internal_utils::errno::error(
+                format!(
+                    "Failed to enable the breakpoint, unable to read address: {:#02x}",
+                    self.addr
                 )
-            })
-            .unwrap();
+                .as_str(),
+                errno,
+            ),
+            Ok(data) => {
+                self.saved_data = data & 0xff;
 
-        self.saved_data = data & 0xff;
-
-        unsafe {
-            sys::ptrace::write(
-                self.pid,
-                self.addr as *mut libc::c_void,
-                ((data & (!0xff)) | 0xcc) as *mut libc::c_void,
-            )
-            .map_err(|errno| {
-                internal_utils::errno::exit(
-                    format!(
-                        "Failed to enable the breakpoint, unabled to write address: {}",
-                        self.addr
+                unsafe {
+                    sys::ptrace::write(
+                        self.pid,
+                        self.addr as *mut libc::c_void,
+                        ((data & (!0xff)) | 0xcc) as *mut libc::c_void,
                     )
-                    .as_str(),
-                    errno,
-                )
-            })
-            .unwrap();
+                    .map_err(|errno| {
+                        internal_utils::errno::error(
+                            format!(
+                                "Failed to enable the breakpoint, unabled to write address: {:#02x}",
+                                self.addr
+                            )
+                            .as_str(),
+                            errno,
+                        )
+                    })
+                    .unwrap();
+                }
+
+                self.enabled = true
+            }
         }
-
-        self.enabled = true
     }
 
-    pub fn disable(mut self) -> () {
+    pub fn disable(&mut self) -> () {
         let data = sys::ptrace::read(self.pid, self.addr as *mut libc::c_void)
             .map_err(|errno| {
-                internal_utils::errno::exit(
+                internal_utils::errno::error(
                     format!(
-                        "Failed to disbale breakpoint, unable to read address: {}",
+                        "Failed to disbale breakpoint, unable to read address: {:#02x}",
                         self.addr
                     )
                     .as_str(),
@@ -78,9 +77,9 @@ impl Breakpoint {
                 ((data & (!0xff)) | self.saved_data) as *mut libc::c_void,
             )
             .map_err(|errno| {
-                internal_utils::errno::exit(
+                internal_utils::errno::error(
                     format!(
-                        "Failed to disbale breakpoint, unable to write address: {}",
+                        "Failed to disbale breakpoint, unable to write address: {:#02x}",
                         self.addr
                     )
                     .as_str(),

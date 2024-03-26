@@ -1,24 +1,31 @@
+use std::{collections::HashMap, path::PathBuf};
+
 use linenoise;
 use nix::{
-    libc, sys,
+    sys,
     unistd::{self, Pid},
 };
 
-use crate::debugger::command::{Command, Continue};
+use crate::breakpoint::Breakpoint;
 
 mod command;
 
-pub struct Debugger<'program> {
-    program: &'program str,
-    pid: unistd::Pid,
+pub struct Debugger {
+    pub program: PathBuf,
+    pub pid: unistd::Pid,
+    pub breakpoints: HashMap<i64, Breakpoint>,
 }
 
-impl<'program> Debugger<'program> {
-    pub fn new(program: &'program str, pid: Pid) -> Self {
-        Debugger { program, pid }
+impl Debugger {
+    pub fn new(program: PathBuf, pid: Pid) -> Self {
+        Debugger {
+            program,
+            pid,
+            breakpoints: HashMap::new(),
+        }
     }
 
-    pub fn run(&self) {
+    pub fn run(&mut self) {
         let _wait_status = sys::wait::waitpid(Some(self.pid), None).unwrap();
 
         loop {
@@ -32,13 +39,14 @@ impl<'program> Debugger<'program> {
         }
     }
 
-    pub fn command_handler(&self, input: &String) {
-        let args = input.split(" ").collect::<Vec<&str>>();
-        let command = args[0];
+    pub fn command_handler(&mut self, input: &String) {
+        command::Command::new(input.clone(), self).parse().run();
+    }
 
-        if command.starts_with("continue") {
-            info!("Continue debugging...");
-            Continue::exec(&self)
-        }
+    pub fn set_breakpoint_at(&mut self, addr: i64) -> () {
+        info!("Set breakpoint at {:#02x}", addr);
+        let mut breakpoint = Breakpoint::new(self.pid, addr);
+        breakpoint.enable();
+        self.breakpoints.insert(addr, breakpoint);
     }
 }

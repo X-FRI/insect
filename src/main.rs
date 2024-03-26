@@ -3,6 +3,7 @@ extern crate log;
 
 mod breakpoint;
 mod cli;
+mod cmd;
 mod debugger;
 mod utils;
 
@@ -21,12 +22,17 @@ fn main() {
 
     let args = cli::Cli::parse();
     match unsafe { unistd::fork() }
-        .map_err(|errno| internal_utils::errno::exit("Failed to create the program process", errno))
+        .map_err(|errno| {
+            internal_utils::errno::error("Failed to create the program process", errno)
+        })
         .unwrap()
     {
         unistd::ForkResult::Parent { child } => {
             info!("Successfully started debugging process");
-            Debugger::new(args.program.to_str().unwrap(), child).run()
+
+            // Disable address space layout randomization for the programs we launch
+            unsafe { libc::personality(libc::ADDR_NO_RANDOMIZE as u64) };
+            Debugger::new(args.program.to_path_buf(), child).run()
         }
 
         unistd::ForkResult::Child => {

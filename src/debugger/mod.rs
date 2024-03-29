@@ -30,7 +30,10 @@ impl Debugger {
 
         loop {
             match linenoise::input("\ninsect> ") {
-                None => break,
+                None => {
+                    println!("bye.");
+                    break;
+                }
                 Some(input) => {
                     self.command_handler(&input);
                     linenoise::history_add(input.as_str());

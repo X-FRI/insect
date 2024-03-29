@@ -1,8 +1,6 @@
 use crate::cmd::{Break, Continue, Empty, CMD};
 
 use super::Debugger;
-use crate::utils as internal_utils;
-use std::str;
 
 pub struct Command<'debugger> {
     debugger: &'debugger mut Debugger,
@@ -11,13 +9,13 @@ pub struct Command<'debugger> {
 }
 
 impl<'debugger> Command<'debugger> {
-    pub fn new(command: String, debugger: &'debugger mut Debugger) -> Command<'debugger> {
+    pub fn new(command: String, debugger: &'debugger mut Debugger) -> Self<'debugger> {
         let args = command
             .split(" ")
             .map(String::from)
             .collect::<Vec<String>>();
 
-        Command {
+        Self {
             command: args[0].to_string(),
             args,
             debugger,

@@ -9,7 +9,7 @@ impl<'debugger> CMD<'debugger> for Break<'debugger> {
 }
 
 impl<'debugger> Break<'debugger> {
-    pub fn new(debugger: &'debugger mut Debugger, addr: i64) -> Break {
-        Break { debugger, addr }
+    pub fn new(debugger: &'debugger mut Debugger, addr: i64) -> Self {
+        Self { debugger, addr }
     }
 }

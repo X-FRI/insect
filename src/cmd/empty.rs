@@ -5,7 +5,7 @@ impl<'debugger> CMD<'debugger> for Empty {
 }
 
 impl Empty {
-    pub fn new() -> Empty {
-        Empty()
+    pub fn new() -> Self {
+        Self()
     }
 }

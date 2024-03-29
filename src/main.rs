@@ -5,12 +5,13 @@ mod breakpoint;
 mod cli;
 mod cmd;
 mod debugger;
+mod register;
 mod utils;
 
 use colog;
 use nix::{self, libc, sys, unistd};
 use std::{
-    ffi::{c_char, c_void, CString},
+    ffi::{c_void, CString},
     ptr,
 };
 use utils as internal_utils;

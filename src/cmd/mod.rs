@@ -9,8 +9,11 @@ pub trait CMD<'debugger> {
 }
 
 pub struct Continue<'debugger>(pub &'debugger Debugger);
-pub struct Empty();
+
 pub struct Break<'debugger> {
     debugger: &'debugger mut Debugger,
     addr: i64,
 }
+
+/// The puporse of this `Empty` command is to do nothing when encountering certain non-fatal errors.
+pub struct Empty();

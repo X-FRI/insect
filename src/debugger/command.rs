@@ -9,7 +9,7 @@ pub struct Command<'debugger> {
 }
 
 impl<'debugger> Command<'debugger> {
-    pub fn new(command: String, debugger: &'debugger mut Debugger) -> Self<'debugger> {
+    pub fn new(command: String, debugger: &'debugger mut Debugger) -> Self {
         let args = command
             .split(" ")
             .map(String::from)

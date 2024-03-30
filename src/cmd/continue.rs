@@ -16,7 +16,7 @@ impl<'debugger> CMD<'debugger> for Continue<'debugger> {
 }
 
 impl<'debugger> Continue<'debugger> {
-    pub fn new(debugger: &Debugger) -> Self {
+    pub fn new(debugger: &'debugger Debugger) -> Self {
         Self(debugger)
     }
 }

@@ -32,7 +32,7 @@ enum Register {
 }
 
 pub(self) struct RegisterDescriptor {
-    register: Register,
-    dwarf_r: i32,
-    name: String,
+    pub register: Register,
+    pub dwarf_r: i32,
+    pub name: &'static str,
 }

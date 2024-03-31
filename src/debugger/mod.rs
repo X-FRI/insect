@@ -1,3 +1,5 @@
+use crate::register;
+use crate::utils as internal_utils;
 use std::{collections::HashMap, path::PathBuf};
 
 use linenoise;
@@ -51,5 +53,20 @@ impl Debugger {
         let mut breakpoint = Breakpoint::new(self.pid, addr);
         breakpoint.enable();
         self.breakpoints.insert(addr, breakpoint);
+    }
+
+    pub fn dump_registers(self) {
+        register::consts::GLOBAL_REGISTER_DESCRIPTORS
+            .iter()
+            .for_each(|reg_desc| {
+                info!(
+                    "{} = 0x{:x}",
+                    reg_desc.name,
+                    internal_utils::result::unwrap(
+                        reg_desc.register.get_register_value(self.pid),
+                        format!("Cannot get the register {} value", reg_desc.name).as_str()
+                    )
+                )
+            })
     }
 }

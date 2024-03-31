@@ -95,7 +95,7 @@ pub const GLOBAL_REGISTER_DESCRIPTORS: [RegisterDescriptor; REGISTERS_NUM] = [
         name: "cs",
     },
     RegisterDescriptor {
-        register: Register::RFLAGS,
+        register: Register::EFLAGS,
         dwarf_r: 49,
         name: "eflags",
     },
